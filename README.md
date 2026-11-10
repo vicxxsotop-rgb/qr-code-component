@@ -87,11 +87,24 @@ ratio (below the 4.5:1 required by WCAG AA), so I darkened it. The final audit i
 
 ### AI Collaboration
 
-I used an AI coding assistant (OpenCode) as a pair-programming partner:
+I used **OpenCode** as an advisor and reviewer, not as a code generator: I wrote the
+HTML and CSS myself and used the assistant to solve doubts, catch mistakes and make sure
+the code was correct.
 
-- It analysed the reference JPGs pixel by pixel to get exact measurements.
-- It ran Lighthouse and the layout checks at 320, 375, 768 and 1440 px widths.
-- I reviewed every change and asked for explanations of the CSS decisions.
+- **Solving doubts:** questions about specific CSS decisions, such as which semantic
+  tags to use, how `place-content: center` works, and why the `line-height` of the title
+  changed the height of the whole card.
+- **Reviewing for errors:** it flagged a contrast ratio of 3.46:1 in the footer (below
+  the 4.5:1 required by WCAG AA) and the attribution pushing the card 19 px off-center
+  compared to the design.
+- **Checking that it was well written:** layout checks at 320, 375, 768 and 1440 px
+  widths, a Lighthouse audit (100 / 100 / 100), and a comparison against the reference
+  JPGs to confirm the spacing matched within about 1 px.
+
+What worked well: it was quick at spotting details I had missed (contrast, centering) and
+at explaining the reason behind each fix. What I still had to do myself: decide which
+changes to keep and check the result visually, because no automated test replaces looking
+at the design.
 
 ## Author
 
