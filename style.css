@@ -1,0 +1,157 @@
+/* ==========================================================================
+   1. Design tokens (colores y medidas del style-guide.md)
+   ========================================================================== */
+
+:root {
+  --white: hsl(0, 0%, 100%);
+  --slate-300: hsl(212, 45%, 89%);
+  --slate-500: hsl(216, 15%, 48%);
+  --slate-900: hsl(218, 44%, 22%);
+
+  --font-body: "Outfit", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --radius-card: 1.25rem;  /* 20px */
+  --radius-image: 0.625rem; /* 10px */
+}
+
+/* ==========================================================================
+   2. Reset ligero
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+p {
+  margin: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* ==========================================================================
+   3. Página: fondo y centrado del contenido
+   ========================================================================== */
+
+body {
+  position: relative;
+
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 1.5rem;
+
+  display: grid;
+  place-content: center;
+  justify-items: center;
+
+  font-family: var(--font-body);
+  font-size: 0.9375rem; /* 15px */
+  color: var(--slate-900);
+  text-align: center;
+
+  background-color: var(--slate-300);
+}
+
+main {
+  width: 100%;
+  max-width: 20rem; /* 320px: el ancho de la tarjeta en el diseño */
+}
+
+/* ==========================================================================
+   4. Tarjeta
+   ========================================================================== */
+
+.card {
+  width: 100%;
+  padding: 1rem 1rem 2.5rem;
+  background-color: var(--white);
+  border-radius: var(--radius-card);
+}
+
+.card__image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-image);
+}
+
+.card__content {
+  padding-inline: 1rem;
+}
+
+.card__title {
+  margin-block: 1.5rem 1rem;
+  font-size: 1.375rem; /* 22px */
+  font-weight: 700;
+  line-height: 1.14; /* 25px: así el bloque mide 50px y la tarjeta 498px, como el diseño */
+}
+
+.card__text {
+  color: var(--slate-500);
+  line-height: 1.4;
+}
+
+/* ==========================================================================
+   5. Footer de atribución
+   ========================================================================== */
+
+/* El footer no forma parte del componente: va anclado abajo para que la
+   tarjeta quede centrada en la pantalla como en el diseño. */
+.attribution {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 1rem;
+  padding-inline: 1.5rem;
+
+  font-size: 0.6875rem; /* 11px */
+  color: var(--slate-900); /* slate-900: el slate-500 no llega al contraste mínimo AA */
+}
+
+.attribution a {
+  color: var(--slate-900);
+  font-weight: 700;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+}
+
+.attribution a:hover {
+  text-decoration: none;
+}
+
+/* Accesibilidad: foco visible al navegar con teclado */
+a:focus-visible {
+  outline: 2px solid var(--slate-900);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ==========================================================================
+   6. Pantallas muy pequeñas (por debajo de ~352px)
+   ========================================================================== */
+
+@media (max-width: 22rem) {
+  .card__title {
+    font-size: 1.25rem; /* 20px */
+  }
+}
+
+/* ==========================================================================
+   7. Pantallas de poca altura: el footer vuelve al flujo normal
+   para no solaparse con la tarjeta
+   ========================================================================== */
+
+@media (max-height: 36rem) {
+  body {
+    gap: 1.5rem;
+  }
+
+  .attribution {
+    position: static;
+  }
+}
