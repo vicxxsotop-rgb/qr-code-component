@@ -89,7 +89,8 @@ main {
 
 .card__title {
   margin-block: clamp(1rem, 1.5rem, 1.5rem) clamp(0.75rem, 1rem, 1rem);
-  font-size: 1.25rem; /* 20px en pantallas muy estrechas */
+  /* 20px a 320px de ancho y 22px (el valor del diseño) desde 375px */
+  font-size: clamp(1.25rem, 0.5225rem + 3.636vw, 1.375rem);
   font-weight: 700;
   line-height: 1.14; /* 25px: así el bloque mide 50px y la tarjeta 498px, como el diseño */
 }
@@ -134,17 +135,7 @@ main {
 }
 
 /* ==========================================================================
-   6. Mobile-first: a partir de ~352px el título usa el tamaño del diseño
-   ========================================================================== */
-
-@media (min-width: 22rem) {
-  .card__title {
-    font-size: 1.375rem; /* 22px */
-  }
-}
-
-/* ==========================================================================
-   7. Pantallas de poca altura: el footer vuelve al flujo normal
+   6. Pantallas de poca altura: el footer vuelve al flujo normal
    para no solaparse con la tarjeta
    ========================================================================== */
 
