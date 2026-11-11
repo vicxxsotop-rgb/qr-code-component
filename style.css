@@ -71,7 +71,8 @@ main {
 
 .card {
   width: 100%;
-  padding: 1rem 1rem 2.5rem;
+  /* clamp(): el padding se mantiene en el valor del diseño y no crece en pantallas grandes */
+  padding: clamp(0.75rem, 1rem, 1rem) clamp(0.75rem, 1rem, 1rem) clamp(2rem, 2.5rem, 2.5rem);
   background-color: var(--white);
   border-radius: var(--radius-card);
 }
@@ -83,11 +84,11 @@ main {
 }
 
 .card__content {
-  padding-inline: 1rem;
+  padding-inline: clamp(0.75rem, 1rem, 1rem);
 }
 
 .card__title {
-  margin-block: 1.5rem 1rem;
+  margin-block: clamp(1rem, 1.5rem, 1.5rem) clamp(0.75rem, 1rem, 1rem);
   font-size: 1.25rem; /* 20px en pantallas muy estrechas */
   font-weight: 700;
   line-height: 1.14; /* 25px: así el bloque mide 50px y la tarjeta 498px, como el diseño */
@@ -107,10 +108,10 @@ main {
 .attribution {
   position: absolute;
   inset-inline: 0;
-  bottom: 1rem;
+  bottom: clamp(0.75rem, 1rem, 1rem);
   padding-inline: clamp(1rem, 4vw, 1.5rem);
 
-  font-size: 0.6875rem; /* 11px */
+  font-size: clamp(0.625rem, 0.6875rem, 0.6875rem); /* 11px */
   color: var(--slate-900); /* slate-900: el slate-500 no llega al contraste mínimo AA */
 }
 
@@ -149,7 +150,7 @@ main {
 
 @media (max-height: 36rem) {
   body {
-    gap: 1.5rem;
+    gap: clamp(1rem, 1.5rem, 1.5rem);
   }
 
   .attribution {
