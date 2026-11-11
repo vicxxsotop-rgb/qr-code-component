@@ -52,7 +52,8 @@ body {
   justify-items: center;
 
   font-family: var(--font-body);
-  font-size: 0.9375rem; /* 15px */
+  /* 15px en el rango del diseño; solo baja ~0,1px en pantallas muy estrechas */
+  font-size: clamp(0.875rem, 0.9rem + 0.15vw, 0.9375rem);
   color: var(--slate-900);
   text-align: center;
 
